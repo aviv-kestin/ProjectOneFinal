@@ -1,0 +1,161 @@
+html{
+    margin: 0;
+    font-size: 10px;
+    background-color: #161d24;
+    background-size:100px 100px, 100px 100px, 50px 50px, 50px 50px;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: "Emeritus";
+    src:
+      local("Emeritus"),
+      url("Emeritus-Display.otf") format("opentype")
+     
+  }
+
+  @font-face {
+    font-family: "Nicola";
+    src:
+      local("Nicola"),
+      url("Nicola-Regular-Trial.otf") format("opentype")
+     
+  }
+
+
+
+
+.titre {
+
+font-family: Emeritus;
+top: -3.5vh;
+position: relative;
+font-size: 11vh;
+color: #293d31;
+justify-content: center;
+text-align: center;
+display: flex;
+letter-spacing: .3.6vw;
+font-kerning: normal;
+
+
+
+}
+
+.titre.green {
+  color: rgb(51, 192, 107);
+  filter: drop-shadow(0px 0px 8px rgba(51, 192, 107, 1));
+  transition: color 2000ms; 
+}
+
+
+.books {
+font-family: Nicola;
+color: rgb(135, 189, 251);
+font-size: 1.8vh;
+
+
+}
+
+.dove {
+
+  display: flex;
+  
+  justify-content: space-evenly;
+  opacity: 45%;
+}
+
+
+
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Align items at the start */
+  color: rgb(135, 189, 251);
+
+
+}
+
+.svg-container {
+  width: 20vw;
+  height: 30vh;
+  overflow: visible;
+  margin-left: -3vw; /* Add some space between SVGs */
+  margin-right: -5vw;
+  padding-left: -5vw;
+  padding-right: -5vw;
+  color: rgb(135, 189, 251);
+  justify-content: center;
+  align-items: center; /* Align items at the start */
+  display: flex;
+  
+
+}
+
+
+
+.text {
+  text-transform: uppercase;
+  font-family: Nicola;
+
+fill:  rgb(55, 188, 209); 
+  display: none; /* Initially hide text */
+}
+
+.text:hover {
+  filter: drop-shadow(0px 0px 8px rgba(55, 188, 209, 1)); /* Increase drop shadow on hover */
+}
+
+
+
+
+.svg-container svg {
+  width: 100%; /* Ensure SVG fills container */
+  height: 100%;
+
+}
+
+.svg-container:hover {
+
+  cursor: pointer;
+}
+
+
+
+
+#wavepath6 {
+  transform: rotate(-12deg);
+}
+
+#color-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#color-toggle img {
+  width: 4vw;
+  height: auto;
+}
+
+
+
+
+
+.highest-z-index {
+    z-index: 3; /* Highest z-index */
+}
+
+.lowest-z-index {
+  z-index: 10; /* Lowest z-index */
+}
+
+.second-highest-z-index {
+    z-index: 2; /* Second highest z-index */
+}
+
