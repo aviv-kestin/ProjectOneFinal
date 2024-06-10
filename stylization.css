@@ -1,156 +1,128 @@
 html {
   margin: 0;
-  box-sizing: border-box;
   font-size: 10px;
   background-color: #161d24;
+  background-size:100px 100px, 100px 100px, 50px 50px, 50px 50px;
+  overflow: hidden;
 }
 
 @font-face {
   font-family: "Emeritus";
   src:
-    local("Emeritus"),
-    url("Emeritus-Display.otf") format("opentype");
+      local("Emeritus"),
+      url("Emeritus-Display.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Nicola";
   src:
-    local("Nicola"),
-    url("Nicola-Regular-Trial.otf") format("opentype");
+      local("Nicola"),
+      url("Nicola-Regular-Trial.otf") format("opentype");
 }
 
-
-
-.hex:before {
-  content: " ";
-  width: 0; height: 0;
-  border-bottom: 30px solid rgb(55, 188, 209);
-  border-left: 52px solid transparent;
-  border-right: 52px solid transparent;
-  position: absolute;
-  top: -30px;
-
-}
-
-.hex {
-  margin-top: 30px;
-  width: 104px;
-  height: 60px;
-  background-color: rgb(55, 188, 209);
+.titre {
+  font-family: Emeritus;
+  top: -3.5vh;
   position: relative;
-  top: 3vh;
-  left: 1.5vw;
-  display: flex;
-  justify-content:center;
-  flex-direction: column;
+  font-size: 11vh;
+  color: #293d31;
+  justify-content: center;
   text-align: center;
-  text-decoration: none;
-
-  
-
+  display: flex;
+  letter-spacing: .3.6vw;
+  font-kerning: normal;
 }
 
-.hex:after {
-  content: "";
-  width: 0;
-  position: absolute;
-  bottom: -30px;
-  border-top: 30px solid rgb(55, 188, 209);
-  border-left: 52px solid transparent;
-  border-right: 52px solid transparent;
-
-
-
-}
-
-.hex:hover {
-
+.titre.green {
   color: rgb(51, 192, 107);
-  filter: drop-shadow(0px 0px 15px rgba(51, 192, 107, 1));
+  filter: drop-shadow(0px 0px 8px rgba(51, 192, 107, 1));
   transition: color 2000ms; 
-  animation: spin 3s linear infinite;
+}
+
+.books {
+  font-family: Nicola;
+  color: rgb(135, 189, 251);
+  font-size: 1.8vh;
+}
+
+.dove {
+  display: flex;
+  justify-content: space-evenly;
+  opacity: 45%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: rgb(135, 189, 251);
+}
+
+.svg-container {
+  width: 20vw;
+  height: 30vh;
+  overflow: visible;
+  margin-left: -3vw;
+  margin-right: -5vw;
+  padding-left: -5vw;
+  padding-right: -5vw;
+  color: rgb(135, 189, 251);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.text {
+  text-transform: uppercase;
+  font-family: Nicola;
+  fill:  rgb(55, 188, 209); 
+  display: inline;
+  transition: opacity 0.3s ease; /* Add a transition for opacity */
+  opacity: 0; /* Initially hide text */
+}
+
+.text:hover {
+  filter: drop-shadow(0px 0px 8px rgba(55, 188, 209, 1)); /* Increase drop shadow on hover */
+  opacity: 1; /* Show text on hover */
+}
+
+.svg-container svg {
+  width: 100%;
+  height: 100%;
+}
+
+.svg-container:hover {
   cursor: pointer;
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#wavepath6 {
+  transform: rotate(-12deg);
 }
 
-#one {
-  
-z-index: 4;
-font-family: Nicola;
-  color: #161d24;
-  font-size: 8rem;
-  line-height: 100px;
-  margin-bottom: 2.4vh;
+#color-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
+#color-toggle img {
+  width: 4vw;
+  height: auto;
+}
 
+.highest-z-index {
+  z-index: 3;
+}
 
+.lowest-z-index {
+  z-index: 10;
+}
 
-
-.cookin {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.second-highest-z-index {
   z-index: 2;
 }
 
-.tatter {
-  font-family: Emeritus;
-  color: #529aef;
-  text-align: left;
-  font-size: 80px;
-  position: fixed;
-  top: 5vh;
-  left: 5vw;
-  text-align: justify;
-}
-
-.hooks {
-  font-family: Nicola;
-  margin-top: 10vh;
-  color: rgb(55, 188, 209);
-  width: 70vw;
-  text-align: justify;
-  font-size: 3.3rem;
-  align-items: center;
-}
-
-.wrapper {
-  position: fixed;
-  top: 52vh;
-  left: 66vw;
-  z-index: 3; /* Set z-index to a negative value to place it behind other elements */
-}
-
-#hex {
-  height: 40vh; /* Adjust to desired height */
-  width: auto; /* Automatically adjust width to maintain proportions */
-  opacity: 100%;
-  
-}
-
-.diamond {
-
-  font-family: Emeritus;
-  font-size: 23.5vh;
-color: rgb(55, 188, 209);
-justify-content: center;
-text-align: center;
-display: flex;
-position: relative;
-line-height: 0vh;
-align-items: center;
-padding: 0%;
-margin: 0%;
-letter-spacing: 1.3rem;
-
-
-}
