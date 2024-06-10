@@ -1,69 +1,63 @@
-$(document).ready(function() {
-    // Set font sizes for each SVG container individually
-    $('.svg-container:nth-of-type(1)').css('font-size', '3vh'); // Specify the font size for SVG 1
-    $('.svg-container:nth-of-type(2)').css('font-size', '3.6vh'); // Specify the font size for SVG 2
-    $('.svg-container:nth-of-type(3)').css('font-size', '4.8vh'); // Specify the font size for SVG 3
-    $('.svg-container:nth-of-type(4)').css('font-size', '3.7vh'); // Specify the font size for SVG 4
-    $('.svg-container:nth-of-type(5)').css('font-size', '3.7vh'); // Specify the font size for SVG 5
-    $('.svg-container:nth-of-type(6)').css('font-size', '5.2vh');
-   
-   
-    $('#color-toggle').click(function() {
-        $('.titre').toggleClass('green');
+$("document").ready(function() {
+    let originalText = $(".hooks").text(); // Store the original text
+    let scrollTimeout; // Variable to store the scroll timeout
 
-        if ($('.dove').hasClass('full-opacity')) {
-            $('.dove').stop().animate({
-                opacity: 0.45 // Set the default opacity value
-            }, 130); // Adjust the duration as needed
-            $('.dove').removeClass('full-opacity');
-        } else {
-            $('.dove').stop().animate({
-                opacity: 1 // Set the full opacity value
-            }, 850); // Adjust the duration as needed
-            $('.dove').addClass('full-opacity');
-        
-        // Update tooltip text based on .titre color
-      
+    // Function to scramble the text
+    function scrambleText(text) {
+        let scrambledText = ""; // Initialize the scrambled text
+        for (let i = 0; i < text.length; i++) {
+            if (Math.random() < 0.5) {
+                // Randomly choose whether to keep the original character or scramble it
+                scrambledText += text.charAt(i); // Keep the original character
+            } else {
+                // Replace the character with a random character
+                scrambledText += String.fromCharCode(Math.floor(Math.random() * 94) + 33);
+            }
+        }
+        return scrambledText; // Return the scrambled text
     }
+
+    // Function to revert the text to its original state
+    function revertToOriginal() {
+        $(".hooks").text(originalText); // Revert to the original text
+    }
+
+    // Event listener for scroll event
+    $(window).scroll(function() {
+        // Clear the previous scroll timeout
+        clearTimeout(scrollTimeout);
+        // Scramble the text immediately
+        $(".hooks").text(scrambleText(originalText));
+        // Set a timeout to revert the text after 500 milliseconds
+        scrollTimeout = setTimeout(function() {
+            revertToOriginal();
+        }, 500);
     });
 
-   
-   
-   
-   
-    // Show static text when the page is loaded
-    $('.static-text').css('display', 'inline');
+    // Function to check if the user has reached the bottom of the page
+    function isBottom() {
+        return $(window).scrollTop() + $(window).height() >= $(document).height();
+    }
 
-    // Add event listeners for hover on text elements
-    $('.text').on({
-        mouseenter: function() {
-            // Mouse over - hide static text, show animated text
-            $(this).closest('.svg-container').find('.static-text').css('display', 'none');
-            $(this).closest('.svg-container').find('.animated-text').css('display', 'inline');
-        },
-        mouseleave: function() {
-            // Mouse out - show static text, hide animated text
-            $(this).closest('.svg-container').find('.static-text').css('display', 'inline');
-            $(this).closest('.svg-container').find('.animated-text').css('display', 'none');
+    // Event listener for scroll event
+    $(window).scroll(function() {
+        // If the user has reached the bottom of the page, revert the text immediately
+        if (isBottom()) {
+            revertToOriginal();
         }
     });
 
 
 
-  
+    window.onscroll = function () {
+        scrollRotate();
+    };
 
-
-
-
-
-
-
-
-
-
-
-
-
+    function scrollRotate() {
+        let image = document.getElementById("hex");
+        image.style.transform = "rotate(" + window.pageYOffset/8 + "deg)";
+    }
 });
+
 
 
